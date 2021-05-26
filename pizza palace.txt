@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Pizza Palace</title>
+<style>
+p.testclass{color : red;
+font-size : 150%;
+font-family: "Times New Roman",Times, serif;
+}
+p.output{color:green}
+</style>
+	<script>
+		function check1(){
+			var addr = document.getElementById("address").value;
+			if(addr==""){
+				document.getElementById("msg1").style.color="Red";
+				document.getElementById("msg1").innerHTML = "Please type address";
+				}
+			else{
+			document.getElementById("msg1").style.color="Green";
+			document.getElementById("msg1").innerHTML = "valid";}
+			}
+		function check2(){
+			var pho = document.getElementById("phone").value;
+			var reg = /^\d{3}-\d{3}-\d{4}$/;
+			if (reg.test(pho)){
+				document.getElementById("msg2").style.color="Green";
+				document.getElementById("msg2").innerHTML = "valid";
+				}
+			else{
+				document.getElementById("msg2").style.color="Red";
+				document.getElementById("msg2").innerHTML = "invalid";
+			}
+}
+
+function bill(){
+var quan = document.getElementById("quantity").value;
+var c = 250*quan 
+document.getElementById("summary").innerHTML="Order Summary:"+ c +".rs";
+document.getElementById("summary1").innerHTML="Your order has been placed!!!!"
+}
+
+</script
+</head>
+<body onload="alert('Namaste, have a nice day');" style="background-color:cyan;">
+<h1>Welcome to Pizza Palace</h1>
+<p class="testclass">Here at pizza palace we make some of the most delicious and authentic italian pizzas. We source some of our products<br>
+directly from Naples valley where the first pizza ever was made. We ensure good hygiene and cleaning practises<br> 
+so that you can have a good time with your friends and family at your home or office without any worry. We are sure<br>
+you are gonna love it here.Fill in the details of your order below</p>
+<form>
+ First Name:<br><input type="text" name="firstname" required/><br>
+Second Name:<br><input type="text" name="secondname"/><br>
+    Address:<br><input id="address" type="text" name="address" onblur="check1();" required/><span id="msg1"></span><br>
+Phone Number:<br><input type="phone" id="phone" type="text" onblur="check2();"><span id="msg2">xxx-xxx-xxxx</span><br>
+<input type="radio" name="food" value="pizza pepperoni">Pizza pepperoni<br><img style="height:40px;" src="https://th.bing.com/th/id/OIP.XXLN3abrSIN9wcatgp1-xwHaE6?w=299&h=198&c=7&o=5&dpr=1.25&pid=1.7"/><br>
+<input type="radio" name="food" value="Margherita Pizza">Margherita Pizza<br><img style="height:40px;" src="https://th.bing.com/th/id/OIP.xUd3gsrJjG--lvuuv3R2rwHaLF?w=204&h=305&c=7&o=5&dpr=1.25&pid=1.7"/><br>
+<input type="radio" name="food" value="Chicken sausage pizza">Chicken sausage pizza<br><img style="height:40px;" src="https://th.bing.com/th/id/OIP.9B9V8eCBnSs_2BhK5xqMdQHaFi?w=260&h=194&c=7&o=5&dpr=1.25&pid=1.7"/><br>
+<input type="radio" name="food" value="Veg supreme pizza">Veg supreme pizza<br><img style="height:40px;" src="https://th.bing.com/th/id/OIP.xq0CFZPR41iPkbDgUmezBAHaDt?w=332&h=175&c=7&o=5&dpr=1.25&pid=1.7"/><br>
+Quantity(1-12):<br><input id="quantity" type="number" name="quantity" min="1" max="12"><br>
+Price:<br><input type="text" name="price" value="Rs.250" readonly><br>
+<input type="checkbox" name="method" value="delivery">delivery<br>
+<input type="checkbox" name="method" value="self pickup"> self pickup<br>
+
+</form>
+
+<button onclick="bill();">order now</button>
+<p class="output" id="summary"></p>
+<p class="output" id="summary1"></p>
+</body>
+</html>
